@@ -33,19 +33,19 @@ def inline_callback(update, context):
     except Exception as e:
         print('error', str(e))
 
-def calendar_today(update , contex):
+def calendar_today(update , context):
     update.message.reply_text('BUGUN TANLANDI')
     
-def calendar_tomorrow(update , contex):
+def calendar_tomorrow(update , context):
     update.message.reply_text('ERTANGI KUN TANLANDI')
     
-def calendar_month(update , contex):
+def calendar_month(update , context):
     update.message.reply_text('TO\'LIQ TAQVIM TANLANDI')
     
-def select_region(update , contex):
+def select_region(update , context):
     update.message.reply_text('REGION TANLASH')
     
-def select_dua(update , contex):
+def select_dua(update , context):
     update.message.reply_text('DUA TANLANDI')
     
 def main():
