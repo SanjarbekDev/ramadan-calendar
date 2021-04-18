@@ -56,7 +56,7 @@ def select_dua(update, context):
 
 def main():
     # Updaterni o'rnatamiz
-    updater = Updater('1649241519:AAF0NhnETritDmIVxFlAg_LCrvVdUc9tSXs', use_context=True)
+    updater = Updater('1750900541:AAENQhwMy2ThSm9c_qk8_KQe5cwLZRnp_p0', use_context=True)
 
     # Dispatcher eventlaini aniqlash
     dispatcher = updater.dispatcher
