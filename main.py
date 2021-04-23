@@ -1,8 +1,8 @@
 from datetime import datetime, timedelta
 from PIL import Image, ImageFont, ImageDraw
 
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
-from telegram.ext import (Updater, CommandHandler, CallbackQueryHandler, ConversationHandler, MessageHandler, Filters)
+from telegram import *
+from telegram.ext import *
 
 from conf import TOKEN, DB_NAME
 from db_helper import DBHelper
@@ -150,11 +150,6 @@ def main():
     # Dispatcher eventlarni aniqlash uchun
     dispatcher = updater.dispatcher
 
-    # start kommandasini ushlab qolish
-    # dispatcher.add_handler(CommandHandler('start', start))
-
-    # inline button query
-    # dispatcher.add_handler(CallbackQueryHandler(inline_callback))
 
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
@@ -169,11 +164,11 @@ def main():
 
             ],
             STATE_CALENDAR: [
-                MessageHandler(Filters.regex('^(' + BTN_TODAY + ')$'), calendar_today),
-                MessageHandler(Filters.regex('^(' + BTN_TOMORROW + ')$'), calendar_tomorrow),
-                MessageHandler(Filters.regex('^(' + BTN_MONTH + ')$'), calendar_month),
-                MessageHandler(Filters.regex('^(' + BTN_REGION + ')$'), select_region),
-                MessageHandler(Filters.regex('^(' + BTN_DUA + ')$'), select_dua)
+                MessageHandler(Filters.regex(BTN_TODAY), calendar_today),
+                MessageHandler(Filters.regex(BTN_TOMORROW), calendar_tomorrow),
+                MessageHandler(Filters.regex(BTN_MONTH), calendar_month),
+                MessageHandler(Filters.regex(BTN_REGION), select_region),
+                MessageHandler(Filters.regex(BTN_DUA), select_dua)
             ],
         },
         fallbacks=[CommandHandler('start', start)]
@@ -184,5 +179,5 @@ def main():
     updater.start_polling()
     updater.idle()
 
-
-main()
+if __name__ == '__main__':
+    main()
